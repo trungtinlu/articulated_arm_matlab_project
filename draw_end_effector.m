@@ -1,10 +1,13 @@
-function draw_end_effector(A_trans)
+function draw_end_effector(A_trans,cd,cr,cc)
     X = [-1 0 1 1 0 -1 -1;
          -1 0 1 1 0 -1 -1];
     Y = [-0.5 -0.5 -0.5 0.5 0.5  0.5  -0.5;
          -0.5 -0.5 -0.5 0.5 0.5  0.5  -0.5];
     Z = [ 1 0 1 1 0  1  1;
           0 0 0 0 0  0  0];
+    X = X*cr;
+    Y = Y*cd;
+    Z = Z*cc;
     A = [X(1,:); Y(1,:); Z(1,:); ones(1,size(X,2))];
     B = [X(2,:); Y(2,:); Z(2,:); ones(1,size(X,2))];
     % Xoay end effector
